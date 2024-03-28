@@ -1,0 +1,38 @@
+---
+name: Pull Request checks
+
+"on":
+  push:
+    branches:
+      - main
+      - master
+
+  
+jobs:
+  dev_apply:
+    name: "Check - Dev"
+    runs-on: ubuntu-latest
+    environment: "dev"
+    steps:
+      - id: repo_checkout
+        name: "Repository: Checkout"
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+      - id: vars_display
+        name: "Application: Display variables"
+        run: echo ${env_name}
+        env:
+          env_name: ${{ vars.ENV_NAME }}
+
+  prod_check:
+    name: "Check - Prod"
+    runs-on: ubuntu-latest
+    environment: "prod"
+    steps:
+      - id: repo_checkout
+        name: "Repository: Checkout"
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+      - id: vars_display
+        name: "Application: Display variables"
+        run: echo ${env_name}
+        env:
+          env_name: ${{ vars.ENV_NAME }}

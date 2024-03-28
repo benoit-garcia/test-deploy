@@ -1,0 +1,22 @@
+---
+name: Create release
+
+"on":
+  push:
+    tags:        
+      - 'v*'
+
+jobs:
+  prod_apply:
+    name: "Check - Prod"
+    runs-on: ubuntu-latest
+    environment: "prod"
+    steps:
+      - id: repo_checkout
+        name: "Repository: Checkout"
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+      - id: vars_display
+        name: "Application: Display variables"
+        run: echo ${env_name}
+        env:
+          env_name: ${{ vars.ENV_NAME }}
