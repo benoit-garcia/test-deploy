@@ -10,7 +10,7 @@ name: Pull Request checks
   
 jobs:
   dev_apply:
-    name: "Check - Dev"
+    name: "Apply - Dev"
     runs-on: ubuntu-latest
     environment: "dev"
     steps:
