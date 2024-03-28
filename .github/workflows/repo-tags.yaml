@@ -8,7 +8,7 @@ name: Create release
 
 jobs:
   prod_apply:
-    name: "Check - Prod"
+    name: "Apply - Prod"
     runs-on: ubuntu-latest
     environment: "prod"
     steps:
