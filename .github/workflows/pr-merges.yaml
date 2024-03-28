@@ -25,6 +25,7 @@ jobs:
 
   prod_check:
     name: "Check - Prod"
+    needs: dev_apply
     runs-on: ubuntu-latest
     environment: "prod"
     steps:
